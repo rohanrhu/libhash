@@ -1,0 +1,5 @@
+*.code-workspace
+.vscode
+.swo
+.swp
+*.o
