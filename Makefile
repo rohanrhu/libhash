@@ -1,10 +1,10 @@
 #
-# libhash is a lightweight WebSocket library for C
+# libhash is a fast and efficient non-iterating hashmap library
 #
 # https://github.com/rohanrhu/libhash
 #
 # Licensed under MIT
-# Copyright (C) 2020, Oğuzhan Eroğlu (https://oguzhaneroglu.com/) <rohanrhu2@gmail.com>
+# Copyright (C) 2021 Oğuzhan Eroğlu (https://oguzhaneroglu.com/) <rohanrhu2@gmail.com>
 #
 
 CC = gcc
