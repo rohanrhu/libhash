@@ -3,3 +3,5 @@
 .swo
 .swp
 *.o
+examples/movies/movies
+examples/benchmark/benchmark

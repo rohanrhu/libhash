@@ -11,9 +11,13 @@
 #ifndef __LIBHASH_H__
 #define __LIBHASH_H__
 
+#ifndef LIBHASH_MAP_SIZE
+#define LIBHASH_MAP_SIZE 256
+#endif
+
 typedef struct libhash_node libhash_node_t;
 struct libhash_node {
-    libhash_node_t* map[128];
+    libhash_node_t* map[LIBHASH_MAP_SIZE];
     libhash_node_t* parent;
     void* value;
     int len;

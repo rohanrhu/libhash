@@ -28,7 +28,7 @@ void libhash_set(libhash_t* hashmap, char* key, void* value) {
     libhash_node_t* current = hashmap->root;
     
     int i = 0;
-    char c;
+    unsigned char c;
     libhash_node_t* latest;
 
     ITERATE:
@@ -116,7 +116,7 @@ libhash_node_t* libhash_node_key(libhash_node_t* root, char* key) {
     libhash_node_t* result = NULL;
     
     for (int i=0; key[i] != '\0'; i++) {
-        current = current->map[key[i]];
+        current = current->map[(unsigned char) key[i]];
         
         if (!current && key[i] != '\0') {
             return NULL;

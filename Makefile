@@ -33,4 +33,5 @@ libhash.o:
 
 clean:
 	make clean -C examples/movies
+	make clean -C examples/benchmark
 	$(RM) $(OBJECTS) _libhash.o

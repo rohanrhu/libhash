@@ -59,7 +59,7 @@ int main() {
     printf("\033[1;32m%.2f\033[0ms elapsed.\n", usecs/1000000.0);
     printf("... to get a key=>value pair within 1000000 items.\n");
 
-    printf("Alien: %s\n", alien->value);
+    alien && printf("Alien: %s\n", alien->value);
 
     return 0;
 }
