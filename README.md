@@ -42,9 +42,9 @@ int main() {
 ```
 
 ## UTF-8 Support
-Default map size is `256` to support UTF-8 keys. You can downgrade it to `128` if you only want to use ASCII keys. **It will reduce memory usage.**
+Default map size is `256` to support UTF-8 keys. You can downgrade it to `128` if you only want to use ASCII keys.
 
-Just pass `CFLAGS+=-DLIBHASH_MAP_SIZE=128` to `make`.
+If you don't want UTF-8 support, just pass `CFLAGS+=-DLIBHASH_MAP_SIZE=128` to `make`. **It will reduce memory usage.**
 
 ```bash
 make CFLAGS+=-DLIBHASH_MAP_SIZE=128
