@@ -57,7 +57,7 @@ Sets a key-value pair.
 ### `void libhash_unset(libhash_t* hashmap, char* key)`
 Unsets a key-value pair.
 
-### `void libhash_get(libhash_t* hashmap, char* key)`
+### `libhash_node_t* libhash_get(libhash_t* hashmap, char* key)`
 Gets the value of `key`.
 
 ## Types
