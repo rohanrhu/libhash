@@ -37,6 +37,8 @@ int main() {
     alien && printf("Alien: %s\n", alien->value);
     prometheus && printf("Prometheus: %s\n", prometheus->value);
 
+    libhash_free(movies);
+
     return 0;
 }
 ```
@@ -71,6 +73,12 @@ Unsets a key-value pair.
 
 ### `libhash_node_t* libhash_get(libhash_t* hashmap, char* key)`
 Gets the value of `key`.
+
+### `void libhash_free(libhash_t* hashmap)`
+Frees `hashmap.`.
+
+### `void libhash_node_free(libhash_node_t* node)`
+Frees `node`.
 
 ## Types
 

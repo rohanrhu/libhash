@@ -131,3 +131,21 @@ libhash_node_t* libhash_node_key(libhash_node_t* root, char* key) {
     
     return result;
 }
+
+void libhash_free(libhash_t* hashmap) {
+    libhash_node_free(hashmap->root);
+    free(hashmap);
+}
+
+static void free_node(libhash_node_t* node) {
+    for (int i=0; i < (sizeof(node->map) / sizeof(libhash_node_t)); i++) {
+        free_node(node->map[i]);
+    }
+    
+    node->value = NULL;
+    free(node);
+}
+
+void libhash_node_free(libhash_node_t* node) {
+    free_node(node);
+}

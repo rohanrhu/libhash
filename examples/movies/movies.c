@@ -28,5 +28,7 @@ int main() {
     alien && printf("Alien: %s\n", alien->value);
     prometheus && printf("Prometheus: %s\n", prometheus->value);
 
+    libhash_free(movies);
+
     return 0;
 }

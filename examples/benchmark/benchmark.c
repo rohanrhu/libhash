@@ -61,5 +61,7 @@ int main() {
 
     alien && printf("Alien: %s\n", alien->value);
 
+    libhash_free(movies);
+
     return 0;
 }
