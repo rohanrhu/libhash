@@ -24,7 +24,7 @@ libhash_t* libhash_init() {
     return hashmap;
 }
 
-void libhash_set(libhash_t* hashmap, char* key, void* value) {
+libhash_node_t* libhash_set(libhash_t* hashmap, char* key, void* value) {
     libhash_node_t* current = hashmap->root;
     
     int i = 0;
@@ -61,6 +61,8 @@ void libhash_set(libhash_t* hashmap, char* key, void* value) {
     END:
 
     current->value = value;
+
+    return current;
 }
 
 void libhash_unset(libhash_t* hashmap, char* key) {

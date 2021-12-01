@@ -65,8 +65,8 @@ make clean; make; ./benchmark
 ### `libhash_t* libhash_init()`
 Creates a hashmap.
 
-### `void libhash_set(libhash_t* hashmap, char* key, void* value)`
-Sets a key-value pair.
+### `libhash_node_t* libhash_set(libhash_t* hashmap, char* key, void* value)`
+Sets a key-value pair and returns the node.
 
 ### `void libhash_unset(libhash_t* hashmap, char* key)`
 Unsets a key-value pair.

@@ -30,7 +30,7 @@ struct libhash {
 
 libhash_t* libhash_init();
 void libhash_free(libhash_t* hashmap);
-void libhash_set(libhash_t* hashmap, char* key, void* value);
+libhash_node_t* libhash_set(libhash_t* hashmap, char* key, void* value);
 void libhash_unset(libhash_t* hashmap, char* key);
 libhash_node_t* libhash_get(libhash_t* hashmap, char* key);
 
