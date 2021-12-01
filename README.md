@@ -75,7 +75,7 @@ Unsets a key-value pair.
 Gets the value of `key`.
 
 ### `void libhash_free(libhash_t* hashmap)`
-Frees `hashmap.`.
+Frees `hashmap`.
 
 ### `void libhash_node_free(libhash_node_t* node)`
 Frees `node`.
@@ -105,4 +105,8 @@ struct libhash_node {
 ```
 
 ## License
-MIT
+
+Copyright (c) 2021 Oğuzhan Eroğlu <rohanrhu2@gmail.com> (https://oguzhaneroglu.com). All rights reserved.
+
+This work is licensed under the terms of the MIT license.  
+For a copy, see <https://opensource.org/licenses/MIT>.
