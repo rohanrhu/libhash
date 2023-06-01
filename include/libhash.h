@@ -8,16 +8,11 @@
  *
  */
 
-#ifndef __LIBHASH_H__
-#define __LIBHASH_H__
-
-#ifndef LIBHASH_MAP_SIZE
-#define LIBHASH_MAP_SIZE 256
-#endif
+#pragma once
 
 typedef struct libhash_node libhash_node_t;
 struct libhash_node {
-    libhash_node_t* map[LIBHASH_MAP_SIZE];
+    libhash_node_t* map[256];
     libhash_node_t* parent;
     void* value;
     int len;
@@ -28,14 +23,14 @@ struct libhash {
     libhash_node_t* root;
 };
 
-libhash_t* libhash_init();
-void libhash_free(libhash_t* hashmap);
-libhash_node_t* libhash_set(libhash_t* hashmap, char* key, void* value);
-void libhash_unset(libhash_t* hashmap, char* key);
-libhash_node_t* libhash_get(libhash_t* hashmap, char* key);
+extern libhash_t* libhash_init();
+extern void libhash_free(libhash_t* hashmap);
+extern libhash_node_t* libhash_set(libhash_t* hashmap, char* key, void* value);
+extern void libhash_unset(libhash_t* hashmap, char* key);
+extern libhash_node_t* libhash_get(libhash_t* hashmap, char* key);
 
-libhash_node_t* libhash_node_init();
-void libhash_node_free(libhash_node_t* node);
-libhash_node_t* libhash_node_key(libhash_node_t* root, char* key);
+extern libhash_node_t* libhash_node_init();
+extern void libhash_node_free(libhash_node_t* node);
+extern libhash_node_t* libhash_node_key(libhash_node_t* root, char* key);
 
-#endif
+extern uint32_t libhash_hash32(char* str);

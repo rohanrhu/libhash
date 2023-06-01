@@ -13,7 +13,6 @@ CL = ld
 CFLAGS = -std=c99 \
 		 -I. \
 		 -g \
-		 -lm
 
 LDFLAGS =
 
@@ -26,12 +25,10 @@ RM = rm -rf
 
 all: libhash.o
 
-libhash.o:
-	$(CC) -c -o _libhash.o src/libhash.c $(CFLAGS) $(LDFLAGS)
-	$(CL) -r _libhash.o -o libhash.o $(LDFLAGS)
-	$(RM) _libhash.o
+libhash.o: src/libhash.c include/libhash.h
+	$(CC) -c -o $@ $(filter-out include/libhash.h, $<) $(CFLAGS) $(LDFLAGS)
 
 clean:
 	make clean -C examples/movies
 	make clean -C examples/benchmark
-	$(RM) $(OBJECTS) _libhash.o
+	$(RM) $(OBJECTS)

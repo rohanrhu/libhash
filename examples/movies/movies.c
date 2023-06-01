@@ -11,6 +11,7 @@
 #define _GNU_SOURCE
 
 #include <stdio.h>
+#include <stdint.h>
 
 #include "../../include/libhash.h"
 
@@ -24,9 +25,9 @@ int main() {
     libhash_node_t* prometheus = libhash_get(movies, "Prometheus");
     libhash_node_t* hello = libhash_get(movies, "こんにちは世界");
 
-    hello && printf("こんにちは世界: %s\n", hello->value);
-    alien && printf("Alien: %s\n", alien->value);
-    prometheus && printf("Prometheus: %s\n", prometheus->value);
+    hello && printf("こんにちは世界: %s\n", (char *) hello->value);
+    alien && printf("Alien: %s\n", (char *)alien->value);
+    prometheus && printf("Prometheus: %s\n", (char *) prometheus->value);
 
     libhash_free(movies);
 

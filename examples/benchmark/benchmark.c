@@ -36,7 +36,7 @@ int main() {
     
     libhash_t* movies = libhash_init();
 
-    for (int i=0; i < 10000; i++) {
+    for (int i=0; i < 100000; i++) {
         libhash_set(movies, random_string(10), random_string(10));
     }
 
@@ -59,7 +59,7 @@ int main() {
     printf("\033[1;32m%.2f\033[0ms elapsed.\n", usecs/1000000.0);
     printf("... to get a key=>value pair within 1000000 items.\n");
 
-    alien && printf("Alien: %s\n", alien->value);
+    alien && printf("Alien: %s\n", (char *) alien->value);
 
     libhash_free(movies);
 

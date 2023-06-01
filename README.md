@@ -1,21 +1,39 @@
 # `libhash`: a fast and efficient non-iterating hashmap library
+
 Libhash is a fast and efficient non-iterating hashmap library
 
 ## Usage
+
 Usage is easy and simple. You can look to `examples/` directory. You can build examples with `make` command.
 
 ### Including
+
 ```c
 #include "libhash/include/libhash.h"
 ```
 
-### Building
+### Building with source
 
 ```bash
 gcc -o application libhash/src/libhash.c application.c
 ```
 
+### Linking `libhash.o`
+
+Build libhash:
+
+```bash
+make
+```
+
+and use `libhash.o`:
+
+```bash
+gcc -o application application.c libhash/libhash.o
+```
+
 ### Simple Hashmap
+
 Here is an example for simple hashmap.
 
 ```C
@@ -43,16 +61,18 @@ int main() {
 }
 ```
 
+## Hash Algorithm
+
+It hashes NULL-terminated strings (I was lazy for making another binary one that works with length lol...) to 32-bit unsigned scalars.
+
+I made some tests about conflictions and it looked oki. And I just made this hash algorithm in a coffee break and note sure how decent it is.
+
 ## UTF-8 Support
-Default map size is `256` to support UTF-8 keys. You can downgrade it to `128` if you only want to use ASCII keys.
 
-If you don't want UTF-8 support, just pass `CFLAGS+=-DLIBHASH_MAP_SIZE=128` to `make`. **It will reduce memory usage.**
-
-```bash
-make CFLAGS+=-DLIBHASH_MAP_SIZE=128
-```
+Since I added hashing feature it always uses `unsigned char` indexes and support UTF-8.
 
 ## Benchmark
+
 There is a benchmark in `examples/benchmark` directory. You can just do:
 
 ```bash
@@ -63,26 +83,37 @@ make clean; make; ./benchmark
 ## Functions
 
 ### `libhash_t* libhash_init()`
+
 Creates a hashmap.
 
 ### `libhash_node_t* libhash_set(libhash_t* hashmap, char* key, void* value)`
+
 Sets a key-value pair and returns the node.
 
 ### `void libhash_unset(libhash_t* hashmap, char* key)`
+
 Unsets a key-value pair.
 
 ### `libhash_node_t* libhash_get(libhash_t* hashmap, char* key)`
+
 Gets the value of `key`.
 
 ### `void libhash_free(libhash_t* hashmap)`
+
 Frees `hashmap`.
 
 ### `void libhash_node_free(libhash_node_t* node)`
+
 Frees `node`.
+
+### `uint32_t libhash_hash32(char* str)`
+
+Accepts NULL-terminated string and returns a 32-bit unsigned scalar hash.
 
 ## Types
 
 ### `libhash_t`
+
 The hashmap type.
 
 ```C
@@ -97,7 +128,7 @@ struct libhash {
 ```C
 typedef struct libhash_node libhash_node_t;
 struct libhash_node {
-    libhash_node_t* map[LIBHASH_MAP_SIZE];
+    libhash_node_t* map[256];
     libhash_node_t* parent;
     void* value;
     int len;
